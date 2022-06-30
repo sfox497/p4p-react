@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
-import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Alert, Button, TouchableOpacity} from 'react-native';
+import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Animated, Button, TouchableOpacity} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 
 
-export default class OptionsSideBar extends Component {
+export default function OptionsSideBar() {
 
-    render() {
+    const navigation = useNavigation();
+
         const Options = [
             { id: '1', title: 'Tutorials',},
             { id: '2', title: 'Predictive Text',},
@@ -18,8 +20,13 @@ export default class OptionsSideBar extends Component {
             <View style={styles.separator} />
         );*/
 
+    const getNavigate = (title) => {
+        navigation.navigate(title)
+    }
+
         const Item = ({title}) => (
-            <TouchableOpacity style={styles.item}>
+
+            <TouchableOpacity style={styles.item} onPress={() =>navigation.navigate("Home")}>
                 <Text style={styles.title}>{title}</Text>
             </TouchableOpacity>
             /*<View>
@@ -40,11 +47,22 @@ export default class OptionsSideBar extends Component {
                     renderItem={({item}) => (<Item title={item.title}/>)}
                     keyExtractor={item => item.id}
                 />
+                <Animated.View style={styles.circle}>
+                    <Text style={{color:"white", padding: 10}}>AI</Text>
+                </Animated.View>
             </SafeAreaView>
         )
-    }
+
 }
+let CIRCLE_RADIUS = 30;
 const styles = StyleSheet.create({
+    circle: {
+        backgroundColor: "black",
+        width: CIRCLE_RADIUS * 2,
+        height: CIRCLE_RADIUS * 2,
+        borderRadius: CIRCLE_RADIUS,
+        margin: 8,
+    },
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,

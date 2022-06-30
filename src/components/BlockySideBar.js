@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {StatusBar, StyleSheet, View, Text} from "react-native";
+import Draggable from "./Draggable";
 
 export default class BlockySideBar extends Component {
     render() {
@@ -9,10 +10,14 @@ export default class BlockySideBar extends Component {
                 <Text style={styles.item}>Categories</Text>
                 <View style={{height: '30%', backgroundColor: '#FFFFFF'}}>
                     <Text>buttons</Text>
+
                 </View>
                 <Text style={styles.item}>Code Blocks</Text>
                 <View style={{height: '50%', backgroundColor: '#FFFFFF'}}>
                     <Text>options</Text>
+                    <Draggable/>
+                    <Draggable/>
+                    <Draggable/>
                 </View>
             </View>
         )
