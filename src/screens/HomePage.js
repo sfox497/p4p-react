@@ -3,6 +3,7 @@ import {Animated, Button, Dimensions, ScrollView, StyleSheet, Text, TouchableOpa
 import TutorialPage from "./TutorialPage";
 import DragAndDropScreen from "../components/DragAndDropScreen";
 import Blockly from 'blockly';
+import ProjectPage from "./ProjectPage";
 import 'blockly/blocks'
 
 
@@ -19,7 +20,7 @@ export default function HomePage({navigation}){
                     <Text>Home Page</Text>
                     <View style={{flexDirection: "row", alignContent: "center", justifyContent: 'center',}}>
                         <TouchableOpacity style={styles.button} title="Start"
-                                          onPress={() => navigation.navigate('Project')}>
+                                          onPress={() => navigation.navigate('ProjectsList')}>
                             <Text style={styles.text}>Start</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.button} title="Tutorials"
@@ -33,6 +34,8 @@ export default function HomePage({navigation}){
                     <Animated.View style={styles.circle}>
                         <Text style={{textDecorationColor:"white", padding: 10}}>Trophies</Text>
                     </Animated.View>
+
+
 
                 </ScrollView>
 

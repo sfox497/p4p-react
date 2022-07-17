@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OptionsSideBar from "./src/components/OptionsSideBar";
 import TutorialPage from "./src/screens/TutorialPage";
+import ProjectPage from "./src/screens/ProjectPage";
 
 export default function App() {
 
@@ -42,6 +43,7 @@ export default function App() {
                   <Stack.Screen name="Project" component={CodingProjectPage} options={{ title: 'Project coding' }} />
                   <Stack.Screen name="ProjectOptions" component={OptionsSideBar} options={{ title: 'Project coding' }} />
                   <Stack.Screen name="Tutorials" component={TutorialPage} options={{ title: 'Blocky Tutorials' }} />
+                  <Stack.Screen name="ProjectsList" component={ProjectPage} options={{ title: 'Projects list' }} />
               </Stack.Navigator>
 
           </View>

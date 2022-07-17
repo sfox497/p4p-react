@@ -29,7 +29,7 @@ export default class DragAndDropScreen extends Component {
 
                     </View>
                     <Text style={styles.item}>Code Blocks</Text>
-                    <View style={{height: '50%', backgroundColor: '#FFFFFF'}}>
+                    <View style={{flexGrow: 1, backgroundColor: '#FFFFFF'}}>
                         <Text>options</Text>
                         <Draggable/>
                         <Draggable/>

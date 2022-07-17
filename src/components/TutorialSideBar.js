@@ -21,7 +21,6 @@ export default function TutorialSideBar() {
         <View>
             <TouchableOpacity style={styles.item}>
                 <Text style={styles.title}>{title}</Text>
-
             </TouchableOpacity>
 
             <Text style={styles.steps}>Step 1</Text>
@@ -57,24 +56,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,
-
-        height: 600,
     },
     item: {
-
         padding: 10,
         marginVertical: 8,
         marginHorizontal: 16,
         borderRadius: 10,
+        borderColor: '#000000',
+        borderWidth: 1,
     },
     title: {
-        fontSize: 30,
+        fontSize: 27,
         textAlign: "center",
     },
     steps: {
-        fontSize: 24,
+        fontSize: 21,
         textAlign: "right",
-        padding: 10,
+        padding: 5,
     },
     home:{
         backgroundColor: '#CAFF96',
