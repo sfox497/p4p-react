@@ -17,7 +17,6 @@ export default function BlocklyWebView() {
         allowFileAccess={true}
         allowUniversalAccessFromFileURLs={true}
         onLoad={updateSource}
-        
       />
     );
 }
