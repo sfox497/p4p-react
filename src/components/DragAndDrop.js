@@ -8,7 +8,7 @@ export default class DragAndDrop extends Component {
         return(
             <View style={{backgroundColor: "#F0F0F0", height: '100%'}}>
                 <View style={styles.dropZone}>
-                    <Text>Drag and drop area</Text>
+
                 </View>
                 <View style={styles.buttons}>
                     <TouchableOpacity style={styles.runButtonContainer}>

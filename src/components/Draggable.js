@@ -21,6 +21,10 @@ export default class Draggable extends Component {
         // Add a listener for the delta value change
         this._val = { x:0, y:0 }
         this.state.pan.addListener((value) => this._val = value);
+
+        /*document.onselectstart = () =>
+        {   window.getSelection().removeAllRanges();
+        };*/
         // Initialize PanResponder with move handling
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: (e, gesture) => true,
@@ -33,7 +37,11 @@ export default class Draggable extends Component {
                     y: this.state.pan.y._value
                 });
             },
-            onPanResponderMove: Animated.event([null, { dx: this.state.pan.x, dy: this.state.pan.y }]),
+            onPanResponderMove: Animated.event([null, {
+                dx: this.state.pan.x, dy: this.state.pan.y
+
+            }]),
+
             // adjusting delta value
             onPanResponderRelease: (e, gesture) => {
                 if (this.isInDropArea(gesture)){
@@ -94,5 +102,6 @@ let styles = StyleSheet.create({
         width: 90,
         height: 40,
         margin: 5,
+        
     }
 });

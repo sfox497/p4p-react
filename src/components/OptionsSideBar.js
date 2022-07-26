@@ -8,12 +8,10 @@ export default function OptionsSideBar() {
     const navigation = useNavigation();
 
         const Options = [
-            { id: '1', title: 'Tutorials',},
-            { id: '2', title: 'Predictive Text',},
-            { id: '3', title: 'AI Teacher',},
-            { id: '4', title: 'Levels',},
-            { id: '5', title: 'Trophies',},
-            { id: '6', title: 'Home',},
+            { id: '1', title: 'Predictive Text',},
+            { id: '2', title: 'AI Teacher',},
+            { id: '3', title: 'Levels',},
+            { id: '4', title: 'Home',},
         ];
 
         /*const Separator = () => (

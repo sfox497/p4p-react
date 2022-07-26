@@ -1,10 +1,22 @@
 import React, {Component} from "react";
-import {StyleSheet, View, Text, TouchableOpacity, StatusBar, Dimensions} from "react-native";
+import {StyleSheet, View, Text, TouchableOpacity, StatusBar, Dimensions, FlatList} from "react-native";
 import Draggable from "./Draggable";
+import {CopilotStep, walkthroughable} from "react-native-copilot";
 
 
 export default class DragAndDropScreen extends Component {
     render() {
+
+        const WalkthroughableButton = walkthroughable(TouchableOpacity);
+
+        const ToolboxData = [
+            { id: '1', title: 'UI', colour: "plum"},
+            { id: '2', title: 'Math', colour: "cornflowerblue"},
+            { id: '3', title: 'Data', colour: "coral"},
+            { id: '4', title: 'Loops', colour: "lightgreen"},
+            { id: '5', title: 'Functions', colour: "khaki"},
+            { id: '6', title: 'Variables', colour: "aquamarine"},
+        ];
 
         function getWidth(){
             const window = Dimensions.get("window");
@@ -20,17 +32,27 @@ export default class DragAndDropScreen extends Component {
             return dropZone
         }
 
+        const ToolBoxItem = ({ title, colour }) => (
+            <TouchableOpacity style={[styles.toolbox,{backgroundColor: colour}]}>
+                <Text style={styles.toolboxText}>{title}</Text>
+            </TouchableOpacity>
+        );
+
         return(
             <View style={{backgroundColor: "#F0F0F0", height: '100%',flexDirection: "row"}}>
                 <View style={styles.container}>
-                    <Text style={styles.item}>Categories</Text>
+                    <Text style={styles.title}>Categories</Text>
                     <View style={{height: '30%', backgroundColor: '#FFFFFF'}}>
-                        <Text>buttons</Text>
+                        <FlatList
+                            data={ToolboxData}
+                            numColumns={2}
+                            renderItem={({item}) => (<ToolBoxItem title={item.title} colour={item.colour}/>)}
+                            keyExtractor={(item) => item.id}
+                        />
 
                     </View>
-                    <Text style={styles.item}>Code Blocks</Text>
+                    <Text style={styles.title}>Code Blocks</Text>
                     <View style={{flexGrow: 1, backgroundColor: '#FFFFFF'}}>
-                        <Text>options</Text>
                         <Draggable/>
                         <Draggable/>
                         <Draggable/>
@@ -49,6 +71,7 @@ export default class DragAndDropScreen extends Component {
                         </TouchableOpacity>
                     </View>
                 </View>
+
             </View>
         )
     }
@@ -69,7 +92,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,
         width: 800,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#F0F0F0",
         height: 600,
 
     },
@@ -113,5 +136,23 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 12
+    },
+    toolbox: {
+        flex: 1,
+        maxWidth: "50%",
+        alignItems: "center",
+        borderRadius: 5,
+        padding: 10,
+        marginVertical: 6,
+        marginHorizontal: 10,
+    },
+    toolboxText:{
+        fontSize: 20,
+        textAlign: "center",
+    },
+    title: {
+        padding: 15,
+        fontSize: 20,
+        textAlign: "center",
     }
 });

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Animated, Button, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Animated, Button, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import TutorialPage from "./TutorialPage";
 import DragAndDropScreen from "../components/DragAndDropScreen";
 import Blockly from 'blockly';
@@ -17,7 +17,6 @@ export default function HomePage({navigation}){
         return (
             <View style={{height: '100%', backgroundColor: '#B2E7FF'}}>
                 <ScrollView style={{height: '100%'}}>
-                    <Text>Home Page</Text>
                     <View style={{flexDirection: "row", alignContent: "center", justifyContent: 'center',}}>
                         <TouchableOpacity style={styles.button} title="Start"
                                           onPress={() => navigation.navigate('ProjectsList')}>
@@ -31,9 +30,14 @@ export default function HomePage({navigation}){
 
                     <Separator/>
 
-                    <Animated.View style={styles.circle}>
-                        <Text style={{textDecorationColor:"white", padding: 10}}>Trophies</Text>
-                    </Animated.View>
+                    <TouchableOpacity
+                        style={styles.circle}
+                        onPress={() => navigation.navigate('Trophies')}>
+                        <Image
+                            style={styles.trophy}
+                            source={require('../../assets/icons8-trophy-90.png')}/>
+
+                    </TouchableOpacity>
 
 
 
@@ -47,7 +51,7 @@ export default function HomePage({navigation}){
 let CIRCLE_RADIUS = 30;
 const styles = StyleSheet.create({
     circle: {
-        backgroundColor: "green",
+        backgroundColor: "#CAFF96",
         width: CIRCLE_RADIUS * 2,
         height: CIRCLE_RADIUS * 2,
         borderRadius: CIRCLE_RADIUS,
@@ -68,5 +72,9 @@ const styles = StyleSheet.create({
     },
     separator: {
         marginVertical: 100,
-    }
+    },
+    trophy : {
+        flex: 1,
+        margin: 8,
+    },
 });
