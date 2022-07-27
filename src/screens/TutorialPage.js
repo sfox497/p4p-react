@@ -18,6 +18,7 @@ import Walkthrough from "../components/walkthrough";
 
 import { copilot, walkthroughable, CopilotStep } from "react-native-copilot";
 import Draggable from "../components/Draggable";
+import BlocklyWebView from "../components/BlocklyWebView";
 
 const TutorialPage = (props) => {
 
@@ -99,71 +100,75 @@ const TutorialPage = (props) => {
                         <Text>Home</Text>
                     </TouchableOpacity>
                 </SafeAreaView>
+                <View style={{flex : 3}}>
+                    <BlocklyWebView/>
+                </View>
 
                 {/* DRAG AND DROP SCREEN */}
 
-                <View style={{backgroundColor: "#F0F0F0", height: '100%',flexDirection: "row",flex: 4, flexGrow: 1}}>
+                {/*<View style={{backgroundColor: "#F0F0F0", height: '100%',flexDirection: "row",flex: 4, flexGrow: 1}}>*/}
 
-                    <View style={styles.container}>
-                        <CopilotStep
-                            text={"The first step is to choose a category"}
-                            order={1}
-                            name={"first"}>
-                            <WalkthroughableView>
-                                <Text style={styles.title}>
-                                    Categories
-                                </Text>
+                {/*    <View style={styles.container}>*/}
+                {/*        <CopilotStep*/}
+                {/*            text={"The first step is to choose a category"}*/}
+                {/*            order={1}*/}
+                {/*            name={"first"}>*/}
+                {/*            <WalkthroughableView>*/}
+                {/*                <Text style={styles.title}>*/}
+                {/*                    Categories*/}
+                {/*                </Text>*/}
 
-                                <View style={{ backgroundColor: '#FFFFFF'}}>
-                                    <FlatList
-                                        data={ToolboxData}
-                                        numColumns={2}
-                                        renderItem={({item}) => (<ToolBoxItem title={item.title} colour={item.colour}/>)}
-                                        keyExtractor={(item) => item.id}
-                                    />
-                                </View>
-                            </WalkthroughableView>
-                        </CopilotStep>
-                        <CopilotStep
-                            active={secondStepActive}
-                            text={"And then to pick the blockly code block"}
-                            order={2}
-                            name={"second"}>
-                            <WalkthroughableView2>
-                                <Text style={styles.title}>Code Blocks</Text>
-                                <View style={{flexGrow: 1, backgroundColor: '#FFFFFF'}}>
-                                    <Draggable/>
-                                    <Draggable/>
-                                    <Draggable/>
-                                </View>
-                            </WalkthroughableView2>
-                        </CopilotStep>
+                {/*                <View style={{ backgroundColor: '#FFFFFF'}}>*/}
+                {/*                    <FlatList*/}
+                {/*                        data={ToolboxData}*/}
+                {/*                        numColumns={2}*/}
+                {/*                        renderItem={({item}) => (<ToolBoxItem title={item.title} colour={item.colour}/>)}*/}
+                {/*                        keyExtractor={(item) => item.id}*/}
+                {/*                    />*/}
+                {/*                </View>*/}
+                {/*            </WalkthroughableView>*/}
+                {/*        </CopilotStep>*/}
+                {/*        <CopilotStep*/}
+                {/*            active={secondStepActive}*/}
+                {/*            text={"And then to pick the blockly code block"}*/}
+                {/*            order={2}*/}
+                {/*            name={"second"}>*/}
+                {/*            <WalkthroughableView2>*/}
+                {/*                <Text style={styles.title}>Code Blocks</Text>*/}
+                {/*                <View style={{flexGrow: 1, backgroundColor: '#FFFFFF'}}>*/}
+                {/*                    <Draggable/>*/}
+                {/*                    <Draggable/>*/}
+                {/*                    <Draggable/>*/}
+                {/*                </View>*/}
+                {/*            </WalkthroughableView2>*/}
+                {/*        </CopilotStep>*/}
 
-                        {/*<Switch onValueChange={(secondStepActive) =>
-                            setSecondStepActive(secondStepActive)}
-                                value={secondStepActive}/>*/}
-                    </View>
-                    <CopilotStep
-                        active={secondStepActive}
-                        text={"And drag to the drop screen"}
-                        order={3}
-                        name={"third"}>
-                        <WalkthroughableView3 style={styles.drop}>
-                            <View style={styles.dropZone}>
-                                <Text>Drag and drop area from {getDragZone().toString()} to {getWidth().toString()}</Text>
-                            </View>
-                            <View style={styles.buttons}>
-                                <TouchableOpacity style={styles.runButtonContainer}>
-                                    <Text style={styles.buttonText}>Run</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.debugButtonContainer}>
-                                    <Text style={styles.buttonText}>Debug</Text>
-                                </TouchableOpacity>
-                            </View>
-                        </WalkthroughableView3>
-                    </CopilotStep>
+                {/*        /!*<Switch onValueChange={(secondStepActive) =>*/}
+                {/*            setSecondStepActive(secondStepActive)}*/}
+                {/*                value={secondStepActive}/>*!/*/}
+                {/*    </View>*/}
+                {/*    <CopilotStep*/}
+                {/*        active={secondStepActive}*/}
+                {/*        text={"And drag to the drop screen"}*/}
+                {/*        order={3}*/}
+                {/*        name={"third"}>*/}
+                {/*        <WalkthroughableView3 style={styles.drop}>*/}
+                {/*            <View style={styles.dropZone}>*/}
+                {/*                <Text>Drag and drop area from {getDragZone().toString()} to {getWidth().toString()}</Text>*/}
+                {/*            </View>*/}
+                {/*            <View style={styles.buttons}>*/}
+                {/*                <TouchableOpacity style={styles.runButtonContainer}>*/}
+                {/*                    <Text style={styles.buttonText}>Run</Text>*/}
+                {/*                </TouchableOpacity>*/}
+                {/*                <TouchableOpacity style={styles.debugButtonContainer}>*/}
+                {/*                    <Text style={styles.buttonText}>Debug</Text>*/}
+                {/*                </TouchableOpacity>*/}
+                {/*            </View>*/}
+                {/*        </WalkthroughableView3>*/}
+                {/*    </CopilotStep>*/}
 
-                </View>
+                {/*</View>*/}
+
             </View>
             {/*<FlatList data={DATA} renderItem={({item}) => (
                             <Item title={item.title}/>)}/>*/}
